@@ -9,8 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 hugging_face_api=os.getenv('HUGGING_FACE_KEY')
 
-os.environ['USER_AGENT'] = "MyLangChainAppUsingR1"
-
 
 
 os.environ['HUGGINGFACEHUB_API_TOKEN']=hugging_face_api
