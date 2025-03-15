@@ -2,13 +2,13 @@ from langchain_community.document_loaders import RecursiveUrlLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.vectorstores import FAISS
+from langchain_community.llms import HuggingFaceHub
 import os
 import streamlit as st
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 load_dotenv()
 hugging_face_api=os.getenv('HUGGING_FACE_KEY')
-
 
 
 os.environ['HUGGINGFACEHUB_API_TOKEN']=hugging_face_api
@@ -31,7 +31,6 @@ if "vector" not in st.session_state:
     retrieval=st.session_state.db_data.as_retriever()
 
 
-
 prompt_template="""
 please provide most relavent and accuracte result based on the data you recived
 
@@ -42,20 +41,12 @@ Question:{question}
 prompt=PromptTemplate(template=prompt_template,input_variables=['context','question'])
 
 
-
-
-from langchain_community.llms import HuggingFaceHub
-
 hf=HuggingFaceHub(
     repo_id="deepseek-ai/DeepSeek-R1",
     task="text-generation",
     model_kwargs={"temperature":0.1,"max_length":500}
 
 )
-
-
-
-
 
 
 from langchain.chains import RetrievalQA
@@ -67,10 +58,8 @@ RetrievalQA_chain=RetrievalQA.from_chain_type(
     return_source_documents=False
 )
 
-
 st.title("RAG APP USING DEEPSEEKR1")
 input_text=st.text_input("Enter about UOH")
-
 
 if input_text:
     response=RetrievalQA_chain.invoke({"query":input_text})
