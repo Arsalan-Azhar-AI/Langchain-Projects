@@ -37,8 +37,8 @@ The application follows these main stages:
 ## Installation and Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/rag-app-deepseek.git
-   cd rag-app-deepseek
+    git clone https://github.com/Arsalan-Azhar-AI/Langchain-Projects.git
+   cd RAG
    ```
 
 2. Create a virtual environment and activate it:

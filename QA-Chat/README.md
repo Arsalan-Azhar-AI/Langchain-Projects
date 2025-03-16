@@ -32,8 +32,8 @@ Below is the visual representation of the chatbot architecture:
 ## Installation and Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/arsalan-chatbot.git
-   cd arsalan-chatbot
+     git clone https://github.com/Arsalan-Azhar-AI/Langchain-Projects.git
+   cd QA-Chat
    ```
 
 2. Create a virtual environment and activate it:
