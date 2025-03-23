@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 Groq_api_key=os.getenv("GROQ_API_KEY")
-
+os.environ['LANGCHAIN_TRACING_V2']='true'
 prompts=ChatPromptTemplate.from_messages([
     ("system","Please read the question carefully and answer based on exact data"),
     ("user","Question:{question}")
